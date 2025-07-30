@@ -29,11 +29,20 @@ export const useSVGProcessor = () => {
     const elementsData: SVGElementData[] = [];
 
     interactiveElements.forEach((element, index) => {
-      const elementId = assignElementId(element, index);
-      element.setAttribute('id', elementId);
-      
       const tagName = element.tagName.toLowerCase();
-      const title = generateElementTitle(index);
+      
+      // Get existing ID or assign sequential ID if none exists
+      const elementId = element.id || assignElementId(element, index);
+      if (!element.id) {
+        element.setAttribute('id', elementId);
+      }
+      
+      // Get title from data-title attribute, fallback to ID, then fallback to sequential
+      const dataTitle = element.getAttribute('data-title');
+      const title = dataTitle || elementId || generateElementTitle(index);
+      
+      console.log(`Processing element: ${title} (${tagName}) ${elementId}`);
+
       const positionData = parseElementPosition(element, tagName);
 
       const elementData: SVGElementData = {
