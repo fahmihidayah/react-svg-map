@@ -112,7 +112,7 @@ const InteractiveSVGMap: React.FC = () => {
               </svg>
             </div>
             <p className="text-lg font-semibold">No SVG uploaded</p>
-            <p className="text-sm">Click "Upload SVG" to get started</p>
+            <p className="text-sm">Click &quot;Upload SVG&quot; to get started</p>
           </div>
         )}
       </div>

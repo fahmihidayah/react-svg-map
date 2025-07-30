@@ -1,4 +1,3 @@
-import Image from "next/image";
 import InteractiveSVGMap from "../component/InteractiveSVGMap";
 
 export default function Home() {
