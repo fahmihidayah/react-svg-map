@@ -1,3 +1,9 @@
+export type TSvg = {
+  id?: string;
+  style?: string;
+  [key: string]: string | undefined; // Allow custom attributes like data-*
+};
+
 export type SvgNode = {
     tag: string;
     attributes: Record<string, string | Record<string, string>>;
@@ -31,7 +37,7 @@ function parseElement(el: Element): SvgNode {
     const attrs: Record<string, string | Record<string, string>> = {};
 
     for (const attr of el.attributes) {
-        let name = attr.name === "class" ? "className" : camelCase(attr.name);
+        const name = attr.name === "class" ? "className" : camelCase(attr.name);
         if (name === "style") {
             attrs["style"] = parseStyle(attr.value);
         } else {

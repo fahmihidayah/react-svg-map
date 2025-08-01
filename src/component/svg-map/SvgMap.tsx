@@ -1,10 +1,8 @@
 'use client';
-import { forwardRef, HTMLAttributes, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SvgComponent, SvgComponentProps } from "./Svg";
-import { parseSvgNodes, SvgNode } from "./types";
-import { TSvg } from "./old-data/types";
-import { parseSvg } from "./old-data/utils";
-import { createNodeElement, renderSvgNodes } from "./react-utils";
+import { parseSvgNodes, SvgNode, TSvg } from "./types";
+import { createNodeElement, parseSvg, renderSvgNodes } from "./react-utils";
 
 type Props = SvgComponentProps & {
     content?: string;
