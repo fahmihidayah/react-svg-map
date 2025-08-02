@@ -37,7 +37,7 @@ const InteractiveSVGMapV3: React.FC = () => {
     elementId: '',
     startTime: 0,
   });
-  
+
   const mapRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -55,7 +55,7 @@ const InteractiveSVGMapV3: React.FC = () => {
   const addToast = useCallback((message: string, type: 'info' | 'success' | 'error' = 'info') => {
     const id = Math.random().toString(36).substr(2, 9);
     setToasts(prev => [...prev, { id, message, type }]);
-    
+
     setTimeout(() => {
       setToasts(prev => prev.filter(toast => toast.id !== id));
     }, 3000);
@@ -96,7 +96,7 @@ const InteractiveSVGMapV3: React.FC = () => {
     }
   }, [transform]);
 
-   const handleMouseMove = useCallback((e: React.MouseEvent) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (isDragging) {
       setTransform(prev => ({
         ...prev,
@@ -109,23 +109,23 @@ const InteractiveSVGMapV3: React.FC = () => {
       if (elementFromPoint && elementFromPoint.tagName.toLowerCase() === 'path') {
         const pathElement = elementFromPoint as SVGPathElement;
         const svgElement = pathElement.ownerSVGElement;
-        
+
         if (svgElement) {
           const rect = svgElement.getBoundingClientRect();
           const mouseX = e.clientX - rect.left;
           const mouseY = e.clientY - rect.top;
-          
+
           // Create a point for hit testing
           const point = svgElement.createSVGPoint();
           point.x = mouseX / transform.scale - transform.x / transform.scale;
           point.y = mouseY / transform.scale - transform.y / transform.scale;
-          
+
           // Check if point is inside the path
           const isInside = pathElement.isPointInFill(point);
-          
+
           // Get path bounding box
           const bbox = pathElement.getBBox();
-          
+
           if (isInside) {
             console.log(`Mouse inside path "${pathElement.id || 'unnamed'}":`, {
               mousePosition: { x: point.x, y: point.y },
@@ -152,7 +152,7 @@ const InteractiveSVGMapV3: React.FC = () => {
     const target = e.target as SVGElement;
     const currentTime = Date.now();
     const timeDiff = currentTime - mouseClickTimer.startTime;
-    
+
     console.log(`Mouse Up on element: ${target.tagName} with ID: ${target.id} after ${timeDiff}ms`);
 
     // Check if it's a click (within 500ms) and the element has a valid tag
@@ -177,15 +177,22 @@ const InteractiveSVGMapV3: React.FC = () => {
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
+
     const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1;
+
+
     const newScale = Math.max(0.1, Math.min(5, transform.scale * scaleFactor));
-    
-    setTransform(prev => ({
-      x: mouseX - (mouseX - prev.x) * (newScale / prev.scale),
-      y: mouseY - (mouseY - prev.y) * (newScale / prev.scale),
-      scale: newScale
-    }));
+
+    if (newScale <= 1.8 && newScale >= 0.5) {
+      console.log("n", newScale)
+      setTransform(prev => ({
+        x: mouseX - (mouseX - prev.x) * (newScale / prev.scale),
+        y: mouseY - (mouseY - prev.y) * (newScale / prev.scale),
+        scale: newScale
+      }));
+    }
+
+
   }, [transform.scale]);
 
   // SVG element hover handlers
@@ -194,7 +201,7 @@ const InteractiveSVGMapV3: React.FC = () => {
     e.preventDefault();
   }, []);
 
-  
+
 
   const handleSVGElementMouseEnter = useCallback((e: React.MouseEvent) => {
     const target = e.target as SVGElement;
@@ -213,7 +220,7 @@ const InteractiveSVGMapV3: React.FC = () => {
       });
       // Apply hover effect
 
-    
+
       target.style.fill = '#9ca3af';
       target.style.stroke = '#9ca3af';
       target.style.cursor = 'pointer';
@@ -223,27 +230,35 @@ const InteractiveSVGMapV3: React.FC = () => {
   const handleSVGElementMouseLeave = useCallback((e: React.MouseEvent) => {
     const target = e.target as SVGElement;
     setHoveredElement(null);
-     setTooltip(prev => ({ ...prev, visible: false }));
+    setTooltip(prev => ({ ...prev, visible: false }));
     // Remove hover effect
     target.style.fill = '';
     target.style.stroke = '';
     target.style.cursor = '';
   }, []);
+const zoomIn = useCallback(() => {
+  const newScale = Math.min(1.8, transform.scale * 1.2);
 
-  // Zoom controls
-  const zoomIn = useCallback(() => {
-    setTransform(prev => ({
-      ...prev,
-      scale: Math.min(5, prev.scale * 1.2)
-    }));
-  }, []);
+  // Prevent zoom-in if already at max
+  if (newScale === transform.scale) return;
 
-  const zoomOut = useCallback(() => {
-    setTransform(prev => ({
-      ...prev,
-      scale: Math.max(0.1, prev.scale * 0.8)
-    }));
-  }, []);
+  setTransform(prev => ({
+    ...prev,
+    scale: newScale,
+  }));
+}, [transform.scale]);
+
+const zoomOut = useCallback(() => {
+  const newScale = Math.max(0.5, transform.scale * 0.8);
+
+  // Prevent zoom-out if already at min
+  if (newScale === transform.scale) return;
+
+  setTransform(prev => ({
+    ...prev,
+    scale: newScale,
+  }));
+}, [transform.scale]);
 
   const resetView = useCallback(() => {
     setTransform({ x: 0, y: 0, scale: 1 });
@@ -252,26 +267,26 @@ const InteractiveSVGMapV3: React.FC = () => {
   // Process SVG content to add event handlers
   const processedSVGContent = React.useMemo(() => {
     if (!svgContent) return '';
-    
+
     // Create a temporary div to parse the SVG
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = svgContent;
     const svgElement = tempDiv.querySelector('svg');
-    
+
     if (svgElement) {
       // Add event handlers to all child elements
       const addEventHandlers = (element: Element) => {
         if (element.tagName !== 'svg') {
           element.setAttribute('style', 'transition: all 0.2s ease;');
         }
-        
+
         Array.from(element.children).forEach(addEventHandlers);
       };
-      
+
       addEventHandlers(svgElement);
       return tempDiv.innerHTML;
     }
-    
+
     return svgContent;
   }, [svgContent]);
 
@@ -282,10 +297,9 @@ const InteractiveSVGMapV3: React.FC = () => {
         {toasts.map(toast => (
           <div
             key={toast.id}
-            className={`px-4 py-2 rounded-lg shadow-lg text-white font-medium transform transition-all duration-300 ${
-              toast.type === 'success' ? 'bg-green-500' :
-              toast.type === 'error' ? 'bg-red-500' : 'bg-blue-500'
-            }`}
+            className={`px-4 py-2 rounded-lg shadow-lg text-white font-medium transform transition-all duration-300 ${toast.type === 'success' ? 'bg-green-500' :
+                toast.type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+              }`}
           >
             {toast.message}
           </div>
@@ -301,7 +315,7 @@ const InteractiveSVGMapV3: React.FC = () => {
           <Upload size={16} />
           Upload SVG
         </button>
-        
+
         <div className="flex gap-1">
           <button
             onClick={zoomIn}
@@ -325,7 +339,7 @@ const InteractiveSVGMapV3: React.FC = () => {
             <RotateCcw size={16} />
           </button>
         </div>
-        
+
         <div className="text-xs text-gray-600 text-center">
           Scale: {Math.round(transform.scale * 100)}%
         </div>
@@ -351,30 +365,30 @@ const InteractiveSVGMapV3: React.FC = () => {
 
         onMouseOver={handleSVGElementMouseEnter}
         onMouseOut={handleSVGElementMouseLeave}
-        // onWheel={handleWheel}
+        onWheel={handleWheel}
       >
         {tooltip.visible && (
-        <div
-          className="fixed z-50  bg-blue-400 px-2 text-white text-sm rounded-lg shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full"
-          style={{
-            left: `${tooltip.x}px`,
-            top: `${tooltip.y - 10}px`,
-            maxWidth: '200px',
-            wordWrap: 'break-word'
-          }}
-        >
-          <div className="font-medium">{tooltip.content}</div>
-          {/* Tooltip arrow */}
-          <div 
-            className="absolute left-1/2 top-full transform -translate-x-1/2 w-0 h-0"
+          <div
+            className="fixed z-50  bg-blue-400 px-2 text-white text-sm rounded-lg shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full"
             style={{
-              borderLeft: '4px solid transparent',
-              borderRight: '4px solid transparent',
-              borderTop: '4px solid #60A5FA'
+              left: `${tooltip.x}px`,
+              top: `${tooltip.y - 10}px`,
+              maxWidth: '200px',
+              wordWrap: 'break-word'
             }}
-          />
-        </div>
-      )}
+          >
+            <div className="font-medium">{tooltip.content}</div>
+            {/* Tooltip arrow */}
+            <div
+              className="absolute left-1/2 top-full transform -translate-x-1/2 w-0 h-0"
+              style={{
+                borderLeft: '4px solid transparent',
+                borderRight: '4px solid transparent',
+                borderTop: '4px solid #60A5FA'
+              }}
+            />
+          </div>
+        )}
         {svgContent ? (
           <div
             className="w-full h-full flex items-center justify-center"
@@ -384,7 +398,7 @@ const InteractiveSVGMapV3: React.FC = () => {
             }}
           >
             <SvGMap
-            content={svgContent}
+              content={svgContent}
 
               onClick={handleSVGElementClick}
               // onMouseOver={handleSVGElementMouseEnter}
