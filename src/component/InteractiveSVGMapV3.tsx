@@ -222,10 +222,38 @@ const InteractiveSVGMapV3: React.FC = () => {
       });
       // Apply hover effect
 
+      const hoverStyles = {
+        fill: '#9ca3af',
+        stroke: '#9ca3af',
+        cursor: 'pointer',
+        // You can add more styles here
+        strokeWidth: '2',
+        opacity: '0.8'
+      };
 
-      target.style.fill = '#9ca3af';
-      target.style.stroke = '#9ca3af';
-      target.style.cursor = 'pointer';
+      // Method 1: Using Object.assign to merge styles
+     
+
+      // Method 2: Alternative - using individual assignments with a loop
+      // Object.entries(hoverStyles).forEach(([property, value]) => {
+      //   target.style[property as any] = value;
+      // });
+
+      // Method 3: Alternative - storing original styles for later restoration
+      if (!target.dataset.originalStyles) {
+        const originalStyles = {
+          fill: target.style.fill || '',
+          stroke: target.style.stroke || '',
+          cursor: target.style.cursor || '',
+          strokeWidth: target.style.strokeWidth || '',
+          opacity: target.style.opacity || ''
+        };
+        target.dataset.originalStyles = JSON.stringify(originalStyles);
+      }
+       Object.assign(target.style, hoverStyles);
+      // target.style.fill = '#9ca3af';
+      // target.style.stroke = '#9ca3af';
+      // target.style.cursor = 'pointer';
     }
   }, []);
 
@@ -233,34 +261,48 @@ const InteractiveSVGMapV3: React.FC = () => {
     const target = e.target as SVGElement;
     setHoveredElement(null);
     setTooltip(prev => ({ ...prev, visible: false }));
+    if (target.dataset.originalStyles) {
+      const originalStyles = JSON.parse(target.dataset.originalStyles);
+      Object.assign(target.style, originalStyles);
+    } else {
+      // Fallback: reset to default values
+      const resetStyles = {
+        fill: '',
+        stroke: '',
+        cursor: '',
+        strokeWidth: '',
+        opacity: ''
+      };
+      Object.assign(target.style, resetStyles);
+    }
     // Remove hover effect
-    target.style.fill = '';
-    target.style.stroke = '';
-    target.style.cursor = '';
+    // target.style.fill = '#9ca3af';
+    // target.style.stroke = '#9ca3af';
+    // target.style.cursor = '';
   }, []);
-const zoomIn = useCallback(() => {
-  const newScale = Math.min(1.8, transform.scale * 1.2);
+  const zoomIn = useCallback(() => {
+    const newScale = Math.min(1.8, transform.scale * 1.2);
 
-  // Prevent zoom-in if already at max
-  if (newScale === transform.scale) return;
+    // Prevent zoom-in if already at max
+    if (newScale === transform.scale) return;
 
-  setTransform(prev => ({
-    ...prev,
-    scale: newScale,
-  }));
-}, [transform.scale]);
+    setTransform(prev => ({
+      ...prev,
+      scale: newScale,
+    }));
+  }, [transform.scale]);
 
-const zoomOut = useCallback(() => {
-  const newScale = Math.max(0.5, transform.scale * 0.8);
+  const zoomOut = useCallback(() => {
+    const newScale = Math.max(0.5, transform.scale * 0.8);
 
-  // Prevent zoom-out if already at min
-  if (newScale === transform.scale) return;
+    // Prevent zoom-out if already at min
+    if (newScale === transform.scale) return;
 
-  setTransform(prev => ({
-    ...prev,
-    scale: newScale,
-  }));
-}, [transform.scale]);
+    setTransform(prev => ({
+      ...prev,
+      scale: newScale,
+    }));
+  }, [transform.scale]);
 
   const resetView = useCallback(() => {
     setTransform({ x: 0, y: 0, scale: 1 });
@@ -300,7 +342,7 @@ const zoomOut = useCallback(() => {
           <div
             key={toast.id}
             className={`px-4 py-2 rounded-lg shadow-lg text-white font-medium transform transition-all duration-300 ${toast.type === 'success' ? 'bg-green-500' :
-                toast.type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+              toast.type === 'error' ? 'bg-red-500' : 'bg-blue-500'
               }`}
           >
             {toast.message}

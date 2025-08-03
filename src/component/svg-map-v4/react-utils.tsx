@@ -1,8 +1,18 @@
 import React from "react";
 import { SvgNode, TSvg } from "./types";
 
+type Props = {
+    node: SvgNode, 
+    key?: number,
+    onClick? : (node : SvgNode) => void
+}
 
-export function createNodeElement(node: SvgNode, key?: number): React.ReactElement | string {
+
+export function createNodeElement({
+    node, 
+    key,
+    onClick
+} : Props): React.ReactElement | string {
     const { tag, attributes, children } = node;
 
      if (tag === "textNode") {
@@ -20,15 +30,24 @@ export function createNodeElement(node: SvgNode, key?: number): React.ReactEleme
     }
 
     const childElements = children.map((child, index) =>
-        createNodeElement(child, index)
+        createNodeElement({
+            node: child, 
+            key: index
+        })
     );
 
 
 
     return React.createElement(tag, {
-        ... props}, ...childElements);
+        ... props,
+        onClick : () => {
+            onClick?.(node)
+        }}, ...childElements);
 }
 
 export function renderSvgNodes(nodes: SvgNode[]): React.ReactNode {
-    return nodes.map((node, index) => createNodeElement(node, index));
+    return nodes.map((node, index) => createNodeElement({
+        node,
+        key: index
+    }));
 }

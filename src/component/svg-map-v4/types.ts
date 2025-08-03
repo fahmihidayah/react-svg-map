@@ -1,6 +1,5 @@
 export type TSvg = {
   id?: string;
-  style?: string;
   [key: string]: string | undefined; // Allow custom attributes like data-*
 };
 
@@ -9,6 +8,7 @@ export type SvgNode = {
     attributes: Record<string, string | Record<string, string>>;
     children: SvgNode[];
 };
+
 
 const isCamelCaseExclude = (input: string): boolean => {
     return (
@@ -125,4 +125,3 @@ export function parseSvg(svgString: string): TSvg {
 
     return svgAttrs;
 }
-

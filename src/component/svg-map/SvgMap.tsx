@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from "react";
 import { SvgComponent, SvgComponentProps } from "./Svg";
-import { parseSvgNodes, SvgNode, TSvg } from "./types";
-import { createNodeElement, parseSvg, renderSvgNodes } from "./react-utils";
+import { parseSvg, parseSvgNodes, SvgNode, TSvg } from "./types";
+import { createNodeElement, renderSvgNodes } from "./react-utils";
 
 type Props = SvgComponentProps & {
     content?: string;

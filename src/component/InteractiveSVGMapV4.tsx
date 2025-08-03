@@ -2,6 +2,8 @@
 
 import { RotateCcw, Upload, ZoomIn, ZoomOut } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
+import SvgMapV4 from "./svg-map-v4/SvgMapV4";
+import useDissableZoom from "@/hooks/useDissableZoom";
 
 interface Toast {
     id: string;
@@ -17,7 +19,7 @@ interface Transform {
 
 
 export default function InteractiveSVGMapV4() {
-
+useDissableZoom()
     const [svgContent, setSvgContent] = useState<string>('');
 
     const [transform, setTransform] = useState<Transform>({ x: 0, y: 0, scale: 1 });
@@ -141,7 +143,9 @@ export default function InteractiveSVGMapV4() {
                             transformOrigin: '0 0'
                         }}
                     >
-                        <p>Content here</p>
+                        <SvgMapV4 content={svgContent} onClickItem={(node) => {
+                            console.log("data node ", node.attributes)
+                        }} />
                     </div>
                 ) : (
                     <div className="flex items-center justify-center h-full">
