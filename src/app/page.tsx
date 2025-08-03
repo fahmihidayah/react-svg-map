@@ -3,6 +3,11 @@ import InteractiveSVGMapV2 from "@/component/InteractiveSVGMapV2";
 import InteractiveSVGMap from "../component/InteractiveSVGMap";
 import InteractiveSVGMapV3 from "@/component/InteractiveSVGMapV3";
 import InteractiveSVGMapV4 from "@/component/InteractiveSVGMapV4";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+}
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Upload, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 import { SvGMap } from './svg-map/SvgMap';
+import useDissableZoom from '@/hooks/useDissableZoom';
 
 interface Toast {
   id: string;
@@ -21,6 +22,7 @@ interface MouseClickTimer {
 }
 
 const InteractiveSVGMapV3: React.FC = () => {
+  useDissableZoom()
   const [svgContent, setSvgContent] = useState<string>('');
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [transform, setTransform] = useState<Transform>({ x: 0, y: 0, scale: 1 });
