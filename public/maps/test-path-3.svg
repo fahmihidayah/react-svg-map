@@ -1,0 +1,243 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#f8fafc"/>
+  
+  <!-- Store 1: Fashion Boutique (Top Left) -->
+  <path id="fashion_boutique" data-title="Fashion Boutique"
+        d="M 30 60 L 180 60 L 180 160 L 30 160 Z" 
+        fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+  <text x="105" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#be185d">Fashion Boutique</text>
+  <circle cx="105" cy="100" r="15" fill="#ec4899" opacity="0.2"/>
+  <path d="M 95 90 Q 105 85 115 90 L 115 110 Q 105 115 95 110 Z" fill="#ec4899"/>
+  <circle cx="100" cy="95" r="2" fill="#ffffff"/>
+  <circle cx="110" cy="95" r="2" fill="#ffffff"/>
+  
+  <!-- Store 2: Electronics Mega Store (Top Center - Modified L-Shape) -->
+  <path id="electronics_mega_store" data-title="Electronics Mega Store"
+        d="M 200 60 L 400 60 L 400 120 L 350 120 L 350 200 L 200 200 Z" 
+        fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="275" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8">Electronics Mega Store</text>
+  <rect x="260" y="90" width="20" height="15" fill="#3b82f6" rx="2"/>
+  <rect x="262" y="92" width="16" height="11" fill="#ffffff"/>
+  <circle cx="270" y="108" r="1.5" fill="#3b82f6"/>
+  
+  <!-- Store 3: Coffee Corner -->
+  <path id="coffee_corner" data-title="Coffee Corner"
+        d="M 420 60 L 520 60 L 520 140 L 420 140 Z" 
+        fill="#fef3e2" stroke="#f59e0b" stroke-width="2"/>
+  <text x="470" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#d97706">Coffee Corner</text>
+  <ellipse cx="470" cy="90" rx="8" ry="6" fill="#f59e0b"/>
+  <ellipse cx="470" cy="88" rx="6" ry="4" fill="#ffffff"/>
+  <path d="M 478 88 Q 483 88 483 92 Q 483 96 478 96" fill="none" stroke="#f59e0b" stroke-width="1"/>
+  
+  <!-- Store 4: Bookstore Paradise -->
+  <path id="bookstore_paradise" data-title="Bookstore Paradise"
+        d="M 540 60 L 720 60 L 720 160 L 540 160 Z" 
+        fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="630" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#16a34a">Bookstore Paradise</text>
+  <rect x="620" y="100" width="12" height="15" fill="#22c55e" transform="rotate(-5 626 107.5)"/>
+  <rect x="622" y="105" width="12" height="15" fill="#16a34a" transform="rotate(5 628 112.5)"/>
+  <line x1="622" y1="108" x2="634" y2="108" stroke="#ffffff" stroke-width="0.5"/>
+  
+  <!-- Store 5: Jewelry Store -->
+  <path id="jewelry_store" data-title="Jewelry Store"
+        d="M 740 60 L 840 60 L 840 140 L 740 140 Z" 
+        fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="790" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed">Jewelry Store</text>
+  <path d="M 790 85 L 795 95 L 790 110 L 785 95 Z" fill="#a855f7"/>
+  <path d="M 790 85 L 792 90 L 790 95 L 788 90 Z" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- Store 6: Sports Arena -->
+  <path id="sports_arena" data-title="Sports Arena"
+        d="M 860 60 L 1050 60 L 1050 160 L 860 160 Z" 
+        fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="955" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#059669">Sports Arena</text>
+  <circle cx="955" cy="100" r="12" fill="none" stroke="#10b981" stroke-width="2"/>
+  <path d="M 948 95 L 962 105 M 962 95 L 948 105" stroke="#10b981" stroke-width="1"/>
+  <circle cx="955" cy="100" r="2" fill="#10b981"/>
+  
+  <!-- Store 7: Food Court -->
+  <path id="food_court" data-title="Food Court"
+        d="M 1070 60 L 1170 60 L 1170 160 L 1070 160 Z" 
+        fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="1120" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">Food Court</text>
+  <circle cx="1120" cy="100" r="10" fill="#ef4444"/>
+  <path d="M 1115 98 Q 1120 93 1125 98 Q 1120 103 1115 98" fill="#ffffff"/>
+  <circle cx="1117" cy="98" r="1" fill="#ef4444"/>
+  <circle cx="1123" cy="98" r="1" fill="#ef4444"/>
+  
+  <!-- Store 8: Home Decor -->
+  <path id="home_decor" data-title="Home Decor"
+        d="M 30 180 L 180 180 L 180 280 L 30 280 Z" 
+        fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+  <text x="105" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#d97706">Home Decor</text>
+  <path d="M 105 210 L 115 220 L 115 240 L 95 240 L 95 220 Z" fill="#f59e0b"/>
+  <path d="M 92 220 L 105 210 L 118 220" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="102" y="228" width="6" height="8" fill="#ffffff"/>
+  
+  <!-- Store 9: Pharmacy Plus (Modified T-Shape) -->
+  <path id="pharmacy_plus" data-title="Pharmacy Plus"
+        d="M 200 220 L 280 220 L 280 180 L 350 180 L 350 240 L 280 240 L 280 280 L 200 280 Z" 
+        fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="275" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0284c7">Pharmacy Plus</text>
+  <rect x="270" y="210" width="6" height="18" fill="#0ea5e9"/>
+  <rect x="263" y="216" width="20" height="6" fill="#0ea5e9"/>
+  
+  <!-- Store 10: Tech Repair Hub -->
+  <path id="tech_repair_hub" data-title="Tech Repair Hub"
+        d="M 370 180 L 500 180 L 500 250 L 520 250 L 520 330 L 370 330 Z" 
+        fill="#f1f5f9" stroke="#6366f1" stroke-width="2"/>
+  <text x="445" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#4f46e5">Tech Repair Hub</text>
+  <path d="M 440 240 L 445 235 L 448 238 L 443 243 Z" fill="#6366f1"/>
+  <circle cx="441" cy="241" r="1" fill="#ffffff"/>
+  <path d="M 435 245 L 450 230" stroke="#6366f1" stroke-width="1"/>
+  
+  <!-- Store 11: Beauty Salon -->
+  <path id="beauty_salon" data-title="Beauty Salon"
+        d="M 540 180 L 670 180 L 670 260 L 540 260 Z" 
+        fill="#fdf2f8" stroke="#f472b6" stroke-width="2"/>
+  <text x="605" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ec4899">Beauty Salon</text>
+  <circle cx="605" cy="210" r="8" fill="#f472b6" opacity="0.3"/>
+  <path d="M 600 205 Q 605 200 610 205 L 610 215 Q 605 220 600 215 Z" fill="#f472b6"/>
+  <circle cx="602" cy="208" r="1" fill="#ffffff"/>
+  <circle cx="608" cy="208" r="1" fill="#ffffff"/>
+  
+  <!-- Store 12: Toy World -->
+  <path id="toy_world" data-title="Toy World"
+        d="M 690 180 L 820 180 L 820 280 L 690 280 Z" 
+        fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="755" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#d97706">Toy World</text>
+  <circle cx="755" cy="220" r="10" fill="#f59e0b"/>
+  <rect x="750" y="210" width="10" height="5" fill="#ffffff"/>
+  <circle cx="752" cy="215" r="1" fill="#f59e0b"/>
+  <circle cx="758" cy="215" r="1" fill="#f59e0b"/>
+  <path d="M 750 225 Q 755 230 760 225" fill="none" stroke="#ffffff" stroke-width="1"/>
+  
+  <!-- Store 13: Pet Store -->
+  <path id="pet_store" data-title="Pet Store"
+        d="M 840 180 L 970 180 L 970 280 L 840 280 Z" 
+        fill="#f0f9ff" stroke="#06b6d4" stroke-width="2"/>
+  <text x="905" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0891b2">Pet Store</text>
+  <circle cx="905" cy="215" r="8" fill="#06b6d4"/>
+  <circle cx="902" cy="212" r="1" fill="#ffffff"/>
+  <circle cx="908" cy="212" r="1" fill="#ffffff"/>
+  <path d="M 900 218 Q 905 222 910 218" fill="none" stroke="#ffffff" stroke-width="1"/>
+  <path d="M 897 210 Q 900 208 903 210" fill="none" stroke="#06b6d4" stroke-width="1"/>
+  <path d="M 907 210 Q 910 208 913 210" fill="none" stroke="#06b6d4" stroke-width="1"/>
+  
+  <!-- Store 14: Music Store -->
+  <path id="music_store" data-title="Music Store"
+        d="M 990 180 L 1120 180 L 1120 280 L 990 280 Z" 
+        fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="1055" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed">Music Store</text>
+  <circle cx="1055" cy="220" r="12" fill="none" stroke="#a855f7" stroke-width="2"/>
+  <path d="M 1050 215 L 1050 225 M 1055 215 L 1055 225 M 1060 215 L 1060 225" stroke="#a855f7" stroke-width="1"/>
+  <circle cx="1050" cy="215" r="2" fill="#a855f7"/>
+  
+  <!-- Store 15: Gift Shop -->
+  <path id="gift_shop" data-title="Gift Shop"
+        d="M 1140 180 L 1170 180 L 1170 320 L 1140 320 Z" 
+        fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+  <text x="1155" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#b91c1c">Gift Shop</text>
+  <rect x="1150" y="230" width="10" height="8" fill="#dc2626"/>
+  <path d="M 1148 230 L 1155 225 L 1162 230" fill="none" stroke="#dc2626" stroke-width="1"/>
+  <rect x="1152" y="232" width="6" height="4" fill="#ffffff"/>
+  
+  <!-- Store 16: Optical Center -->
+  <path id="optical_center" data-title="Optical Center"
+        d="M 30 300 L 160 300 L 160 400 L 30 400 Z" 
+        fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="95" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0369a1">Optical Center</text>
+  <circle cx="95" cy="340" r="10" fill="none" stroke="#0284c7" stroke-width="2"/>
+  <circle cx="95" cy="340" r="6" fill="none" stroke="#0284c7" stroke-width="1"/>
+  <rect x="88" y="330" width="14" height="2" fill="#0284c7"/>
+  
+  <!-- Store 17: Watch Repair -->
+  <path id="watch_repair" data-title="Watch Repair"
+        d="M 180 300 L 280 300 L 280 380 L 180 380 Z" 
+        fill="#fef7cd" stroke="#ca8a04" stroke-width="2"/>
+  <text x="230" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#a16207">Watch Repair</text>
+  <circle cx="230" cy="330" r="8" fill="none" stroke="#ca8a04" stroke-width="2"/>
+  <path d="M 230 325 L 230 330 L 235 335" stroke="#ca8a04" stroke-width="1"/>
+  <circle cx="230" cy="330" r="1" fill="#ca8a04"/>
+  
+  <!-- Store 18: Flower Shop -->
+  <path id="flower_shop" data-title="Flower Shop"
+        d="M 300 350 L 420 350 L 420 430 L 300 430 Z" 
+        fill="#fdf4ff" stroke="#d946ef" stroke-width="2"/>
+  <text x="360" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c026d3">Flower Shop</text>
+  <circle cx="360" cy="380" r="4" fill="#d946ef"/>
+  <circle cx="355" cy="375" r="3" fill="#f472b6"/>
+  <circle cx="365" cy="375" r="3" fill="#f472b6"/>
+  <circle cx="355" cy="385" r="3" fill="#f472b6"/>
+  <circle cx="365" cy="385" r="3" fill="#f472b6"/>
+  <rect x="359" y="385" width="2" height="8" fill="#22c55e"/>
+  
+  <!-- Store 19: Candy Corner -->
+  <path id="candy_corner" data-title="Candy Corner"
+        d="M 440 350 L 540 350 L 540 430 L 440 430 Z" 
+        fill="#fef3e2" stroke="#f97316" stroke-width="2"/>
+  <text x="490" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ea580c">Candy Corner</text>
+  <circle cx="490" cy="385" r="6" fill="#f97316"/>
+  <circle cx="485" cy="380" r="3" fill="#fbbf24"/>
+  <circle cx="495" cy="380" r="3" fill="#fbbf24"/>
+  <circle cx="490" cy="375" r="2" fill="#dc2626"/>
+  
+  <!-- Store 20: Stationery Plus -->
+  <path id="stationery_plus" data-title="Stationery Plus"
+        d="M 560 280 L 720 280 L 720 430 L 560 430 Z" 
+        fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="640" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#334155">Stationery Plus</text>
+  <rect x="635" y="340" width="10" height="15" fill="#475569"/>
+  <circle cx="640" cy="330" r="2" fill="#475569"/>
+  <path d="M 630 345 L 650 345 M 630 350 L 650 350" stroke="#94a3b8" stroke-width="0.5"/>
+  
+  <!-- Elevators -->
+  <!-- Elevator 1 -->
+  <rect id="elevator_1" data-title="Elevator 1" x="540" y="300" width="40" height="40" fill="#6b7280" stroke="#374151" stroke-width="2"/>
+  <text x="560" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">E1</text>
+  <rect x="545" y="305" width="30" height="25" fill="#4b5563" rx="2"/>
+  <rect x="550" y="310" width="20" height="15" fill="#9ca3af" rx="1"/>
+  
+  <!-- Elevator 2 -->
+  <rect id="elevator_2" data-title="Elevator 2" x="740" y="300" width="40" height="40" fill="#6b7280" stroke="#374151" stroke-width="2"/>
+  <text x="760" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">E2</text>
+  <rect x="745" y="305" width="30" height="25" fill="#4b5563" rx="2"/>
+  <rect x="750" y="310" width="20" height="15" fill="#9ca3af" rx="1"/>
+  
+  <!-- Elevator 3 -->
+  <rect id="elevator_3" data-title="Elevator 3" x="800" y="400" width="40" height="40" fill="#6b7280" stroke="#374151" stroke-width="2"/>
+  <text x="820" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">E3</text>
+  <rect x="805" y="405" width="30" height="25" fill="#4b5563" rx="2"/>
+  <rect x="810" y="410" width="20" height="15" fill="#9ca3af" rx="1"/>
+  
+  <!-- Doors -->
+  <!-- Door 1 (North) -->
+  <rect id="door_1" data-title="North Entrance" x="580" y="30" width="40" height="20" fill="#059669" stroke="#047857" stroke-width="2"/>
+  <text x="600" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">DOOR</text>
+  <path d="M 590 35 L 610 35 M 590 40 L 610 40 M 590 45 L 610 45" stroke="#34d399" stroke-width="1"/>
+  
+  <!-- Door 2 (South) -->
+  <rect id="door_2" data-title="South Entrance" x="580" y="850" width="40" height="20" fill="#059669" stroke="#047857" stroke-width="2"/>
+  <text x="600" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">DOOR</text>
+  <path d="M 590 855 L 610 855 M 590 860 L 610 860 M 590 865 L 610 865" stroke="#34d399" stroke-width="1"/>
+  
+  <!-- Door 3 (West) -->
+  <rect id="door_3" data-title="West Entrance" x="5" y="430" width="20" height="40" fill="#059669" stroke="#047857" stroke-width="2"/>
+  <text x="15" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffffff" transform="rotate(-90 15 455)">DOOR</text>
+  <path d="M 10 440 L 10 460 M 15 440 L 15 460 M 20 440 L 20 460" stroke="#34d399" stroke-width="1"/>
+  
+  <!-- Door 4 (East) -->
+  <rect id="door_4" data-title="East Entrance" x="1175" y="430" width="20" height="40" fill="#059669" stroke="#047857" stroke-width="2"/>
+  <text x="1185" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffffff" transform="rotate(90 1185 455)">DOOR</text>
+  <path d="M 1180 440 L 1180 460 M 1185 440 L 1185 460 M 1190 440 L 1190 460" stroke="#34d399" stroke-width="1"/>
+  
+  <!-- Mall Title -->
+  <text x="600" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1f2937">Grand Shopping Complex</text>
+  
+  <!-- Walkway indicators -->
+  <path d="M 0 170 L 1200 170" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+  <path d="M 0 290 L 1200 290" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+  <path d="M 0 340 L 1200 340" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+  <path d="M 0 440 L 1200 440" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+</svg>

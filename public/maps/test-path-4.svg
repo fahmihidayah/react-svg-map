@@ -1,0 +1,123 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bitcount+Mono+Single:wght@400;700&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#f8fafc"/>
+  
+  <!-- Store 1: Fashion Boutique (Top Left - Rectangle) -->
+  <path id="fashion_boutique" data-title="Fashion Boutique"
+        d="M 50 80 L 300 80 L 300 250 L 50 250 Z" 
+        fill="#fce7f3" stroke="#ec4899" stroke-width="3"/>
+  <text x="175" y="235" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#be185d">Fashion Boutique</text>
+  <!-- Fashion Icon -->
+  <circle cx="175" cy="150" r="25" fill="#ec4899" opacity="0.2"/>
+  <path d="M 160 135 Q 175 125 190 135 L 190 165 Q 175 175 160 165 Z" fill="#ec4899"/>
+  <circle cx="170" cy="145" r="3" fill="#ffffff"/>
+  <circle cx="180" cy="145" r="3" fill="#ffffff"/>
+  
+  <!-- Store 2: Electronics Mega Store (Top Center - L-Shape) -->
+  <path id="electronics_mega_store" data-title="Electronics Mega Store"
+        d="M 350 80 L 650 80 L 650 180 L 550 180 L 550 250 L 350 250 Z" 
+        fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <text x="500" y="235" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#1d4ed8">Electronics Mega Store</text>
+  <!-- Electronics Icon -->
+  <rect x="485" y="130" width="30" height="20" fill="#3b82f6" rx="3"/>
+  <rect x="488" y="133" width="24" height="14" fill="#ffffff"/>
+  <circle cx="500" cy="155" r="2" fill="#3b82f6"/>
+  <rect x="495" y="120" width="10" height="5" fill="#3b82f6"/>
+  
+  <!-- Store 3: Coffee Corner (Top Right - Small Square) -->
+  <path id="coffee_corner" data-title="Coffee Corner"
+        d="M 700 80 L 850 80 L 850 180 L 700 180 Z" 
+        fill="#fef3e2" stroke="#f59e0b" stroke-width="3"/>
+  <text x="775" y="170" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="14" font-weight="bold" fill="#d97706">Coffee Corner</text>
+  <!-- Coffee Icon -->
+  <ellipse cx="775" cy="120" rx="12" ry="8" fill="#f59e0b"/>
+  <ellipse cx="775" cy="118" rx="10" ry="6" fill="#ffffff"/>
+  <path d="M 787 118 Q 795 118 795 125 Q 795 132 787 132" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M 770 110 Q 775 105 780 110" fill="none" stroke="#f59e0b" stroke-width="1"/>
+  
+  <!-- Store 4: Bookstore Paradise (Top Right Extended) -->
+  <path id="bookstore_paradise" data-title="Bookstore Paradise"
+        d="M 900 80 L 1150 80 L 1150 250 L 900 250 Z" 
+        fill="#f0fdf4" stroke="#22c55e" stroke-width="3"/>
+  <text x="1025" y="235" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#16a34a">Bookstore Paradise</text>
+  <!-- Book Icon -->
+  <rect x="1010" y="135" width="20" height="25" fill="#22c55e" transform="rotate(-10 1020 147.5)"/>
+  <rect x="1015" y="140" width="20" height="25" fill="#16a34a" transform="rotate(5 1025 152.5)"/>
+  <line x1="1015" y1="145" x2="1035" y2="145" stroke="#ffffff" stroke-width="1"/>
+  <line x1="1015" y1="150" x2="1035" y2="150" stroke="#ffffff" stroke-width="1"/>
+  
+  <!-- Store 5: Jewelry Store (Middle Left - Small) -->
+  <path id="jewelry_store" data-title="Jewelry Store"
+        d="M 50 300 L 200 300 L 200 400 L 50 400 Z" 
+        fill="#fdf4ff" stroke="#a855f7" stroke-width="3"/>
+  <text x="125" y="385" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="14" font-weight="bold" fill="#7c3aed">Jewelry Store</text>
+  <!-- Diamond Icon -->
+  <path d="M 125 320 L 135 335 L 125 355 L 115 335 Z" fill="#a855f7"/>
+  <path d="M 125 320 L 130 330 L 125 340 L 120 330 Z" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- Store 6: Sports Arena (Middle Center - Large Rectangle) -->
+  <path id="sports_arena" data-title="Sports Arena"
+        d="M 250 300 L 500 300 L 500 450 L 250 450 Z" 
+        fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+  <text x="375" y="435" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#059669">Sports Arena</text>
+  <!-- Sports Icon -->
+  <circle cx="375" cy="360" r="20" fill="none" stroke="#10b981" stroke-width="3"/>
+  <path d="M 365 350 L 385 370 M 385 350 L 365 370" stroke="#10b981" stroke-width="2"/>
+  <circle cx="375" cy="360" r="3" fill="#10b981"/>
+  
+  <!-- Store 7: Food Court (Middle Right - Combined Boxes) -->
+  <path id="food_court" data-title="Food Court"
+        d="M 550 300 L 750 300 L 750 400 L 850 400 L 850 500 L 550 500 Z" 
+        fill="#fef2f2" stroke="#ef4444" stroke-width="3"/>
+  <text x="700" y="485" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#dc2626">Food Court</text>
+  <!-- Food Icon -->
+  <circle cx="700" cy="380" r="15" fill="#ef4444"/>
+  <path d="M 690 375 Q 700 365 710 375 Q 700 385 690 375" fill="#ffffff"/>
+  <circle cx="695" cy="375" r="2" fill="#ef4444"/>
+  <circle cx="705" cy="375" r="2" fill="#ef4444"/>
+  <path d="M 685 390 L 690 395 L 710 395 L 715 390" fill="none" stroke="#ef4444" stroke-width="2"/>
+  
+  <!-- Store 8: Home Decor (Bottom Left - Rectangle) -->
+  <path id="home_decor" data-title="Home Decor"
+        d="M 50 500 L 300 500 L 300 650 L 50 650 Z" 
+        fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+  <text x="175" y="635" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#d97706">Home Decor</text>
+  <!-- Home Icon -->
+  <path d="M 175 530 L 190 545 L 190 580 L 160 580 L 160 545 Z" fill="#f59e0b"/>
+  <path d="M 155 545 L 175 530 L 195 545" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <rect x="170" y="560" width="10" height="12" fill="#ffffff"/>
+  <circle cx="168" cy="566" r="1" fill="#f59e0b"/>
+  
+  <!-- Store 9: Pharmacy Plus (Bottom Center - T-Shape) -->
+  <path id="pharmacy_plus" data-title="Pharmacy Plus"
+        d="M 350 550 L 450 550 L 450 500 L 550 500 L 550 600 L 450 600 L 450 650 L 350 650 Z" 
+        fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3"/>
+  <text x="450" y="635" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#0284c7">Pharmacy Plus</text>
+  <!-- Medical Cross Icon -->
+  <rect x="445" y="560" width="10" height="30" fill="#0ea5e9"/>
+  <rect x="435" y="570" width="30" height="10" fill="#0ea5e9"/>
+  
+  <!-- Store 10: Tech Repair Hub (Bottom Right - Irregular Shape) -->
+  <path id="tech_repair_hub" data-title="Tech Repair Hub"
+        d="M 600 550 L 750 550 L 750 600 L 850 600 L 850 750 L 600 750 Z" 
+        fill="#f1f5f9" stroke="#6366f1" stroke-width="3"/>
+  <text x="725" y="735" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="16" font-weight="bold" fill="#4f46e5">Tech Repair Hub</text>
+  <!-- Repair Tool Icon -->
+  <path d="M 720 650 L 730 640 L 735 645 L 725 655 Z" fill="#6366f1"/>
+  <circle cx="722" cy="652" r="2" fill="#ffffff"/>
+  <path d="M 710 660 L 740 630" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="715" cy="665" r="3" fill="#6366f1"/>
+  <circle cx="735" cy="635" r="3" fill="#6366f1"/>
+  
+  <!-- Mall Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="'Bitcount Mono Single', monospace" font-size="32" font-weight="bold" fill="#1f2937">Premium Shopping Mall</text>
+  
+  <!-- Walkway indicators -->
+  <path d="M 0 270 L 1200 270" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="10,5" opacity="0.5"/>
+  <path d="M 0 480 L 1200 480" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="10,5" opacity="0.5"/>
+</svg>

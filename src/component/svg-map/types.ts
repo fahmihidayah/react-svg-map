@@ -1,7 +1,7 @@
 export type TSvg = {
-  id?: string;
-  style?: string;
-  [key: string]: string | undefined; // Allow custom attributes like data-*
+    id?: string;
+    style?: string;
+    [key: string]: string | undefined; // Allow custom attributes like data-*
 };
 
 export type SvgNode = {
@@ -27,7 +27,13 @@ function parseStyle(style: string): Record<string, string> {
     for (const entry of entries) {
         const [prop, value] = entry.split(":");
         if (prop && value) {
-            styleObj[camelCase(prop.trim())] = value.trim();
+            if (prop === 'fill' && value === 'none') {
+                styleObj[camelCase(prop.trim())] = 'transparent';
+            }
+            else {
+                styleObj[camelCase(prop.trim())] = value.trim();
+            }
+
         }
     }
     return styleObj;
@@ -42,7 +48,13 @@ function parseElement(el: Element): SvgNode {
         if (name === "style") {
             attrs["style"] = parseStyle(attr.value);
         } else {
-            attrs[name] = attr.value;
+            if (name === 'fill' && attr.value === 'none') {
+                attrs[name] = 'transparent'
+            }
+            else {
+                attrs[name] = attr.value;
+            }
+
         }
     }
 
@@ -65,11 +77,11 @@ function parseElement(el: Element): SvgNode {
 
     const match = `${content}`.match(/<text\b[^>]*>(.*?)<\/text>/i);
     const textContent = match ? match[1] : null;
-    if(textContent) {
+    if (textContent) {
         children.push({
             tag: "textNode",
-                attributes: { textContent: textContent},
-                children: [],
+            attributes: { textContent: textContent },
+            children: [],
         })
     }
 
@@ -91,8 +103,6 @@ export function parseSvgNodes(svgString: string): SvgNode[] {
         nodes.push(parseElement(child));
     }
 
-    console.log("result : ", nodes)
-
     return nodes;
 }
 
@@ -110,7 +120,6 @@ export function parseSvg(svgString: string): TSvg {
         let camelKey = attr.name.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 
 
-        console.log("value : ", camelKey, attr.value)
         // Try to parse as number, but preserve string if not a valid number
         if (camelKey === 'class') {
             camelKey = 'className';
@@ -120,8 +129,6 @@ export function parseSvg(svgString: string): TSvg {
         }
 
     }
-
-    console.log("attributes ", JSON.stringify(svgAttrs))
 
     return svgAttrs;
 }

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Upload, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 import { SvGMap } from './svg-map/SvgMap';
 import useDissableZoom from '@/hooks/useDissableZoom';
@@ -21,9 +21,9 @@ interface MouseClickTimer {
   startTime: number;
 }
 
-const InteractiveSVGMapV3: React.FC = () => {
+function InteractiveSVGMapV3({ content }: { content?: string }) {
   useDissableZoom()
-  const [svgContent, setSvgContent] = useState<string>('');
+  const [svgContent, setSvgContent] = useState<string | undefined>(undefined);
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [transform, setTransform] = useState<Transform>({ x: 0, y: 0, scale: 1 });
   const [isDragging, setIsDragging] = useState(false);
@@ -82,6 +82,10 @@ const InteractiveSVGMapV3: React.FC = () => {
     };
     reader.readAsText(file);
   }, [addToast]);
+
+  useEffect(() => {
+    setSvgContent(content);
+  }, [content])
 
   // Mouse event handlers for pan and zoom
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -232,7 +236,7 @@ const InteractiveSVGMapV3: React.FC = () => {
       };
 
       // Method 1: Using Object.assign to merge styles
-     
+
 
       // Method 2: Alternative - using individual assignments with a loop
       // Object.entries(hoverStyles).forEach(([property, value]) => {
@@ -250,7 +254,7 @@ const InteractiveSVGMapV3: React.FC = () => {
         };
         target.dataset.originalStyles = JSON.stringify(originalStyles);
       }
-       Object.assign(target.style, hoverStyles);
+      Object.assign(target.style, hoverStyles);
       // target.style.fill = '#9ca3af';
       // target.style.stroke = '#9ca3af';
       // target.style.cursor = 'pointer';
@@ -352,15 +356,20 @@ const InteractiveSVGMapV3: React.FC = () => {
 
       {/* Controls */}
       <div className="absolute top-4 left-4 z-40 bg-white rounded-lg shadow-lg p-2 space-y-2">
-        <button
-          onClick={() => fileInputRef.current?.click()}
-          className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-        >
-          <Upload size={16} />
-          Upload SVG
-        </button>
+
+
+        {
+          content === undefined && <button
+            onClick={() => fileInputRef.current?.click()}
+            className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          >
+            <Upload size={16} />
+            Upload SVG
+          </button>
+        }
 
         <div className="flex gap-1">
+
           <button
             onClick={zoomIn}
             className="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
@@ -368,6 +377,7 @@ const InteractiveSVGMapV3: React.FC = () => {
           >
             <ZoomIn size={16} />
           </button>
+
           <button
             onClick={zoomOut}
             className="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
